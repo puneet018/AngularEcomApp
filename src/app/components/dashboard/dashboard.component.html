@@ -1,0 +1,489 @@
+<div class="all-section-continer">
+    <div class="header" *ngIf="!sellerDetails">
+        <span id="menu-action">
+      <i class="fa fa-bars"></i>
+      <span>Close</span>
+        </span>
+        <div class="logo">Shop keeper</div>
+    </div>
+    <div class="sidebar" *ngIf="!sellerDetails">
+        <ul class="nav nav-tabs">
+            <li class="active">
+                <a data-toggle="tab" href="#home">
+                    <i class="fa fa-desktop"></i><span>Dashboard</span></a>
+            </li>
+            <li>
+                <a data-toggle="tab" href="#menu1"><i class="fa fa-server"></i><span>Products</span></a
+        >
+      </li>
+      <li>
+        <a data-toggle="tab" href="#menu2"
+          ><i class="fa fa-calendar"></i><span>Orders</span></a
+        >
+      </li>
+      <li>
+        <a data-toggle="tab" href="#menu3"
+          ><i class="fa fa-envelope-o"></i><span>Messages</span></a
+        >
+      </li>
+      <li>
+        <a data-toggle="tab" href="#menu4"
+          ><i class="fa fa-envelope-o"></i><span>Setting</span></a
+        >
+      </li>
+      <li>
+        <a data-toggle="tab" (click)="logout()"
+          ><i class="fa fa-envelope-o"></i><span>SignOut</span></a
+        >
+      </li>
+    </ul>
+  </div>
+  <!-- Dashboard-->
+  <div class="tab-content all-section-continer">
+    <div id="home" class="container tab-pane in active">
+      <div class="main">
+        <!--if conditions when fill the all information -->
+        <span *ngIf="sellerDetails; else elseBlock">
+          <app-steps-seller-form></app-steps-seller-form>
+        </span>
+        <ng-template #elseBlock>
+          <div class="main-body1">
+            <div class="container">
+              <div class="block">
+                <div class="number">230</div>
+                <div class="string">TOTAL ORDERS</div>
+              </div>
+              <div class="block">
+                <div class="number">&#x20B9;900</div>
+                <div class="string">TOTAL SALES</div>
+              </div>
+              <div class="block">
+                <div class="number">136</div>
+                <div class="string">STORE VIEWS</div>
+              </div>
+              <div class="block">
+                <div class="number">274</div>
+                <div class="string">PRODUCTS VIEWS</div>
+              </div>
+            </div>
+          </div>
+          <div class="main-body2">
+            <span class="level-1">Active Orders</span>
+            <div class="level-menu">
+              <ul
+                class="nav nav-pills mb-3 active-order-menu"
+                id="pills-tab"
+                role="tablist"
+              >
+                <li class="nav-item">
+                  <a
+                    class="nav-link active-order-menu-btn active"
+                    id="pendding-tab"
+                    data-toggle="pill"
+                    href="#pendding"
+                    role="tab"
+                    aria-controls="pendding"
+                    aria-selected="true"
+                    >Pending
+                    <img
+                      src="/assets/imgs/icons/pending.png"
+                      style="width: 20px"
+                  /></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active-order-menu-btn" id="accepted-tab" data-toggle="pill" href="#accepted" role="tab" aria-controls="accepted" aria-selected="false">Accepted
+                    <img
+                      src="/assets/imgs/icons/accepted.png"
+                      style="width: 20px"
+                  /></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active-order-menu-btn" id="pills-contact-tab" data-toggle="pill" href="#shipped" role="tab" aria-controls="pills-contact" aria-selected="false">Shipped
+                    <img
+                      src="/assets/imgs/icons/shipped.png"
+                      style="width: 20px"
+                  /></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active-order-menu-btn" id="pills-contact-tab" data-toggle="pill" href="#shipped" role="tab" aria-controls="pills-contact" aria-selected="false">Failed
+                    <img
+                      src="/assets/imgs/icons/failed.png"
+                      style="width: 20px"
+                  /></a>
+            </li>
+        </ul>
+    </div>
+    <div class="tab-content active-order-body" id="active-order-tabContent">
+        <div class="tab-pane fade show active" id="pendding" role="tabpanel" aria-labelledby="pendding-tab">
+            <ul class="row">
+                <li class="active-order-card col-md-5">
+                    <span class="order-id">Order Id #1200012</span>
+                    <span class="date-n-time">12/07/2021 4:50PM</span>
+                    <div class="center-line"></div>
+                    <div class="active-order-card-body">
+                        <div class="images">
+                            <img src="{{ adminProductsList[1].image }}" />
+                        </div>
+                        <div class="active-order-details">
+                            <span class="active-order-items">2 ITEM</span>
+                            <span class="center-line2"></span>
+                            <span class="active-order-amounts">&#x20B9;40</span>
+                        </div>
+                        <span class="active-order-payment-status">UPI</span>
+                    </div>
+                    <div id="pendingOrder" class="collapse" data-parent="#accordion">
+                        <div class="card-body row">
+                            <div class="order-full-details col-md-12">
+                                <div class="active-order-pro-image">
+                                    <img src="{{ adminProductsList[1].image }}" />
+                                </div>
+                                <div class="order-all-details">
+                                    <span class="order-title">Aalu (Potato)</span>
+                                    <span class="order-qty">1Kg</span>
+                                    <span class="order-pro-value">2 X &#x20B9;10
+                              <span class="order-total-pro-value"
+                                >&#x20B9;20</span
+                              ></span
+                            >
+                          </div>
+                        </div>
+                        <span class="center-line"></span><br />
+                                    <div class="order-full-details col-md-12">
+                                        <div class="active-order-pro-image">
+                                            <img src="{{ adminProductsList[1].image }}" />
+                                        </div>
+                                        <div class="order-all-details">
+                                            <span class="order-title">Aalu (Potato)</span>
+                                            <span class="order-qty">1Kg</span>
+                                            <span class="order-pro-value">2 X &#x20B9;10
+                              <span class="order-total-pro-value"
+                                >&#x20B9;20</span
+                              ></span
+                            >
+                          </div>
+                        </div>
+                        <span class="center-line"></span><br />
+                                            <div class="col-md-12">
+                                                <div class="order-amount-details">
+                                                    <span class="order-item-total-amount">Item Total Amount
+                              <span class="order-total-pro-value"
+                                >&#x20B9;40</span
+                              ></span
+                            >
+                            <span class="order-delivery-amount"
+                              >Delivery Amount
+                              <span class="order-total-pro-value"
+                                >FREE</span
+                              ></span
+                            >
+                            <span class="order-pro-value"
+                              >Grand Total
+                              <span class="order-total-pro-value"
+                                >&#x20B9;40</span
+                              ></span
+                            >
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="accordion">
+                      <div class="card">
+                        <div class="card-header">
+                          <a
+                            class="card-link"
+                            data-toggle="collapse"
+                            href="#pendingOrder"
+                          >
+                            Show me full Order
+                          </a>
+                          <a
+                            class="nav-link order-header-btn"
+                            id="accepted-tab"
+                            data-toggle="pill"
+                            href="#accepted"
+                            role="tab"
+                            aria-controls="accepted"
+                            aria-selected="false"
+                            (click)="acceptedStatus()"
+                            >Accepte
+                            <img
+                              src="/assets/imgs/icons/accepted.png"
+                              style="width: 20px"
+                          /></a>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li
+                    class="active-order-card col-md-5"
+                    (click)="getOrderDetials()"
+                  >
+                    <span class="order-id">Order Id #1200012</span>
+                                                    <span class="date-n-time">12/07/2021 4:50PM</span>
+                                                    <div class="center-line"></div>
+                                                    <div class="active-order-card-body">
+                                                        <div class="images">
+                                                            <img src="{{ adminProductsList[1].image }}" />
+                                                        </div>
+                                                        <div class="active-order-details">
+                                                            <span class="active-order-items">1 ITEM</span>
+                                                            <span class="center-line2"></span>
+                                                            <span class="active-order-amounts">&#x20B9;230</span>
+                                                        </div>
+                                                        <span class="active-order-payment-status">UPI</span>
+                                                    </div>
+                </li>
+                <li class="active-order-card col-md-5" (click)="getOrderDetials()">
+                    <span class="order-id">Order Id #1200012</span>
+                    <span class="date-n-time">12/07/2021 4:50PM</span>
+                    <div class="center-line"></div>
+                    <div class="active-order-card-body">
+                        <div class="images">
+                            <img src="{{ adminProductsList[1].image }}" />
+                        </div>
+                        <div class="active-order-details">
+                            <span class="active-order-items">1 ITEM</span>
+                            <span class="center-line2"></span>
+                            <span class="active-order-amounts">&#x20B9;230</span>
+                        </div>
+                        <span class="active-order-payment-status">UPI</span>
+                    </div>
+                </li>
+                <li class="active-order-card col-md-5" (click)="getOrderDetials()">
+                    <span class="order-id">Order Id #1200012</span>
+                    <span class="date-n-time">12/07/2021 4:50PM</span>
+                    <div class="center-line"></div>
+                    <div class="active-order-card-body">
+                        <div class="images">
+                            <img src="{{ adminProductsList[1].image }}" />
+                        </div>
+                        <div class="active-order-details">
+                            <span class="active-order-items">1 ITEM</span>
+                            <span class="center-line2"></span>
+                            <span class="active-order-amounts">&#x20B9;230</span>
+                        </div>
+                        <span class="active-order-payment-status">UPI</span>
+                    </div>
+                </li>
+            </ul>
+            </div>
+            <div class="tab-pane fade" id="accepted" role="tabpanel" aria-labelledby="accepted-tab">
+                ...
+            </div>
+            <div class="tab-pane fade" id="shipped" role="tabpanel" aria-labelledby="shipped-tab">
+                ...
+            </div>
+            </div>
+            </div>
+            </ng-template>
+            </div>
+            </div>
+            <!-- Products Section -->
+            <div id="menu1" class="container tab-pane fade">
+                <div class="main">
+                    <h3>Products</h3>
+                    <div class="hipsum">
+                        <div class="jumbotron hm-gradient">
+                            <main>
+                                <!-- Grid row -->
+                                <div class="row">
+                                    <!-- Grid column -->
+                                    <div class="col-md-6 mb-4">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <h3 class="text-center default-text py-3">
+                                                    <i class="fa fa-product-hunt"></i> Add Product
+                                                </h3>
+                                                <!--Body-->
+                                                <button type="button" class="btn btn-primary show-btn" data-toggle="modal" data-target=".bd-example-modal-lg">
+                        Show Me Products
+                      </button>
+                                                <div class="add-product-form row">
+                                                    <!--<div class="select-dropdown">
+                            <select>
+
+                              <option value="0" selected>Select Products</option>
+
+                              <option value="Option 1"><img src="../assets/imgs/tomato.jpg" width="100px" height="100px"> First Option</option>
+                              <option value="Option 2">2nd Option</option>
+                              <option value="Option 3">Option Number 3</option>
+                            </select>
+                          </div>-->
+                                                    <form name="form" (ngSubmit)="f.form.valid && onSubmitAddProduct()" #f="ngForm" novalidate class="container">
+                                                        <div class="row">
+                                                            <div class="col-md-12 md-form">
+                                                                <div class="images" data-selected="">
+                                                                    <!-- <span class="loader">loading image...</span>
+                                  <span class="no-selection">no image selected</span>
+                                  [(ngModel)]="form.product.proImg" name="proImg" #product="ngModel"
+                                  *ngFor="let adminProducts of adminProductsList; let i = index" [attr.data-index]="i"
+                                  -->
+
+                                                                    <img [class]="classExpression" src="{{ imgPath }}" />
+                                                                    <!--<img
+                                    src="../assets/imgs/vegs/potato.jpg"
+                                    data-image="2"
+                                    alt="Potato"
+                                    title="Potato"
+                                  />-->
+                                                                </div>
+                                                                <div class="select-box">
+                                                                    <select (ngModelChange)="setImg($event)" [(ngModel)]="form.productId" name="productId" #productId="ngModel" id="selectbox" required data-selected="">
+                                  <option selected disabled="disabled">
+                                    Select an Product
+                                  </option>
+                                  <option
+                                    *ngFor="
+                                      let adminProducts of adminProductsList
+                                    "
+                                    [ngValue]="adminProducts.id"
+                                  >
+                                    {{ adminProducts.title }}
+                                  </option>
+                                </select>
+                                                                    <label for="select-product">Select Product Name</label
+                                >
+                              </div>
+                            </div>
+
+                            <div class="col-md-6 md-form">
+                              <input
+                                type="number"
+                                id="product-qty"
+                                class="form-control"
+                                [(ngModel)]="form.product_qty"
+                                name="product_qty"
+                                #productQty="ngModel"
+                                required
+                              />
+                              <label for="product-qty">Product Quantity</label>
+                                                                </div>
+                                                                <div class="col-md-6 md-form">
+                                                                    <select [(ngModel)]="form.productUnintId" name="productUnintId" #productUnintId="ngModel" id="" required>
+                                <option selected value="0">Select Unit</option>
+                                <option
+                                  *ngFor="let apu of allProductUnits"
+                                  [ngValue]="apu.id"
+                                >
+                                  {{ apu.unit_code }} - {{ apu.unit_name }}
+                                </option>
+                              </select>
+                                                                    <label for="select-unit">Select Unit</label>
+                                                                </div>
+                                                                <div class="col-md-6 md-form">
+                                                                    <input type="number" id="product-price" class="form-control" [(ngModel)]="form.product_price" name="product_price" #productPrice="ngModel" required />
+                                                                    <label for="product-price">Price</label>
+                                                                </div>
+                                                                <div class="col-md-6 text-center">
+                                                                    <input class="btn btn-primary" type="submit" name="" value="Add" />
+                                                                </div>
+                                                            </div>
+                                                    </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Grid column -->
+                                        <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog modal-lg">
+                                                <div class="modal-content">
+                                                    <h3 class="text-center default-text py-3">
+                                                        <i class="fa fa-product-hunt"></i> Show Products
+                                                    </h3>
+                                                    <table class="table table-dark">
+                                                        <thead>
+                                                            <tr>
+                                                                <th scope="col">#</th>
+                                                                <th scope="col">Product</th>
+                                                                <th scope="col">Name</th>
+                                                                <th scope="col">Qty</th>
+                                                                <th scope="col">Price</th>
+                                                                <th scope="col">Opration</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <!--*ngIf="adminProductsList[i].id==ap.product_id"-->
+                                                            <tr scope="row" *ngFor="
+                              let asp of addedSellerProducts;
+                              let i = index
+                            " [attr.data-index]="i">
+                                                                <td>{{ i + 1 }}</td>
+                                                                <td>
+                                                                    <img src="{{
+                                  adminProductsList[asp.product_id - 1].image
+                                }}" alt="{{
+                                  adminProductsList[asp.product_id - 1].title
+                                }}" title="{{
+                                  adminProductsList[asp.product_id - 1].title
+                                }}" width="100px" />
+                                                                </td>
+                                                                <td>
+                                                                    {{ adminProductsList[asp.product_id - 1].title }}
+                                                                </td>
+                                                                <td>{{ asp.qty }}</td>
+                                                                <td>{{ asp.price }}</td>
+                                                                <td>edit</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Grid column
+                <div class="col-md-6 mb-4">
+                  <div class="card">
+                    <div class="card-body">
+
+                    </div>
+                  </div>
+                </div>-->
+                                    </div>
+                            </main>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Orders Section -->
+                <div id="menu2" class="container tab-pane fade">
+                    <div class="main">
+                        <h3>Orders</h3>
+                        <div class="hipsum">
+                            <div class="jumbotron">
+                                <h1 id="hello,-world!">
+                                    Hello, Ram Mohan Ji!<a class="anchorjs-link" href="#hello,-world!"><span class="anchorjs-icon"></span
+              ></a>
+                                </h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Messages Section -->
+                <div id="menu3" class="container tab-pane fade">
+                    <div class="main">
+                        <h3>Messages</h3>
+                        <div class="hipsum">
+                            <div class="jumbotron">
+                                <h1 id="hello,-world!">
+                                    Hello, Ram Mohan Ji!<a class="anchorjs-link" href="#hello,-world!"><span class="anchorjs-icon"></span
+              ></a>
+                                </h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Setting Section -->
+                <div id="menu4" class="container tab-pane fade">
+                    <div class="main">
+                        <h3>Setting</h3>
+                        <div class="hipsum">
+                            <div class="jumbotron">
+                                <h1 id="hello,-world!">
+                                    Hello, Ram Mohan Ji!<a class="anchorjs-link" href="#hello,-world!"><span class="anchorjs-icon"></span
+              ></a>
+                                </h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>

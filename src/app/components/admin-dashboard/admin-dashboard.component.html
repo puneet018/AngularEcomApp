@@ -1,0 +1,488 @@
+<div class="all-section-continer">
+  <div class="header all-section-continer">
+    <span id="menu-action">
+      <i class="fa fa-bars"></i>
+      <span>Close</span>
+    </span>
+    <div class="logo">Admin</div>
+  </div>
+  <div class="sidebar all-section-continer">
+    <ul class="nav nav-tabs">
+      <li class="active">
+        <a data-toggle="tab" href="#home">
+          <i class="fa fa-desktop"></i><span>Dashboard</span></a
+        >
+      </li>
+      <li>
+        <a data-toggle="tab" href="#menu1"
+          ><i class="fa fa-server"></i><span>Products</span></a
+        >
+      </li>
+      <li>
+        <a data-toggle="tab" href="#menu2"
+          ><i class="fa fa-calendar"></i><span>Shops</span></a
+        >
+      </li>
+      <li>
+        <a data-toggle="tab" href="#menu3"
+          ><i class="fa fa-envelope-o"></i><span>Messages</span></a
+        >
+      </li>
+      <li>
+        <a data-toggle="tab" href="#menu4"
+          ><i class="fa fa-envelope-o"></i><span>Setting</span></a
+        >
+      </li>
+    </ul>
+  </div>
+  <!-- Dashboard-->
+  <div class="tab-content all-section-continer">
+    <div id="home" class="container tab-pane in active">
+      <div class="main">
+        <h3>Dashboard</h3>
+
+        <div class="jumbotron">
+          <h1 id="hello,-world!">
+            Hello, Admin Puneet!<a class="anchorjs-link" href="#hello,-world!"
+              ><span class="anchorjs-icon"></span
+            ></a>
+          </h1>
+        </div>
+      </div>
+    </div>
+    <!-- Products Section -->
+    <div id="menu1" class="container tab-pane fade">
+      <div class="main">
+        <h3>Products</h3>
+        <div class="hipsum">
+          <div class="jumbotron hm-gradient">
+            <main>
+              <!-- Grid row -->
+              <div class="row">
+                <!-- Grid column 1 -->
+                <div class="col-md-6 mb-4">
+                  <div class="card">
+                    <div class="card-body">
+                      <h3 class="text-center default-text py-3">
+                        <i class="fa fa-product-hunt"></i> Add New Product
+                        Category
+                      </h3>
+                      <!--Body-->
+                      <!-- Small modal -->
+                      <button
+                        type="button"
+                        class="btn btn-primary show-btn"
+                        data-toggle="modal"
+                        data-target="#showProdCategory"
+                      >
+                        Show Me Categories
+                      </button>
+                      <div class="add-product-cat-form">
+                        <span *ngIf="isSuccessful"> Category Added </span>
+                        <!--<div class="select-dropdown">
+                            <select>
+
+                              <option value="0" selected>Select Products</option>
+
+                              <option value="Option 1"><img src="../assets/imgs/tomato.jpg" width="100px" height="100px"> First Option</option>
+                              <option value="Option 2">2nd Option</option>
+                              <option value="Option 3">Option Number 3</option>
+                            </select>
+                          </div>-->
+                        <form
+                          name="form"
+                          (ngSubmit)="
+                            f.form.valid && onSubmitAddProductCategory()
+                          "
+                          #f="ngForm"
+                          novalidate
+                        >
+                          <div class="md-form">
+                            <label for="product-category"
+                              >Product Category Title</label
+                            >
+                            <input
+                              id="product-category"
+                              class="form-control"
+                              type="text"
+                              [(ngModel)]="form.prodCategory"
+                              name="prodCategory"
+                              #prodCategory="ngModel"
+                              required
+                            />
+                          </div>
+                          <div class="text-center">
+                            <input
+                              class="btn btn-default waves-effect waves-light"
+                              type="submit"
+                              name=""
+                              value="Add"
+                            />
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Grid column 1 -->
+                <div
+                  class="modal fade bd-example-modal-sm"
+                  tabindex="-1"
+                  role="dialog"
+                  id="showProdCategory"
+                  aria-labelledby="showProdCategory"
+                  aria-hidden="true"
+                >
+                  <div class="modal-dialog modal-sm">
+                    <div class="modal-content">
+                      <h3 class="text-center default-text py-3">
+                        <i class="fa fa-product-hunt"></i> Show Products
+                        Categories
+                      </h3>
+                      <table class="table table-dark">
+                        <thead>
+                          <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Product Category</th>
+                            <th scope="col">Opration</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr
+                            scope="row"
+                            *ngFor="let apc of allProdCat; let i = index"
+                            [attr.data-index]="i"
+                          >
+                            <td>{{ i + 1 }}</td>
+                            <td>{{ apc.prod_category }}</td>
+                            <td><a href="">Delete</a></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+                <!-- Grid column 2-->
+                <div class="col-md-6 mb-4">
+                  <div class="card">
+                    <div class="card-body">
+                      <h3 class="text-center default-text py-3">
+                        <i class="fa fa-product-hunt"></i> Add New Product Unit
+                      </h3>
+                      <!--Body-->
+                      <!-- Small modal -->
+                      <button
+                        type="button"
+                        class="btn btn-primary show-btn"
+                        data-toggle="modal"
+                        data-target="#showUnits"
+                      >
+                        Show me Units
+                      </button>
+                      <div class="add-product-cat-form">
+                        <span *ngIf="isSuccessful"> Unit Added </span>
+                        <!--<div class="select-dropdown">
+                            <select>
+
+                              <option value="0" selected>Select Products</option>
+
+                              <option value="Option 1"><img src="../assets/imgs/tomato.jpg" width="100px" height="100px"> First Option</option>
+                              <option value="Option 2">2nd Option</option>
+                              <option value="Option 3">Option Number 3</option>
+                            </select>
+                          </div>-->
+                        <form
+                          name="form"
+                          (ngSubmit)="f3.form.valid && onSubmitAddProductUnit()"
+                          #f3="ngForm"
+                          novalidate
+                          class="container"
+                        >
+                          <div class="row">
+                            <div class="col-md-8">
+                              <label for="product-category"
+                                >Product Unit Title</label
+                              >
+                              <input
+                                id="product-unit"
+                                class="form-control"
+                                type="text"
+                                [(ngModel)]="form.unitName"
+                                name="unitName"
+                                #unitName="ngModel"
+                                required
+                              />
+                            </div>
+                            <div class="col-md-4">
+                              <label for="product-category">Unit Code</label>
+                              <input
+                                id="product-unit-code"
+                                class="form-control"
+                                type="text"
+                                [(ngModel)]="form.unitCode"
+                                name="unitCode"
+                                #unitCode="ngModel"
+                                required
+                              />
+                            </div>
+                          </div>
+                          <div class="text-center">
+                            <input
+                              class="btn btn-default waves-effect waves-light"
+                              type="submit"
+                              name=""
+                              value="Add"
+                            />
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Grid column 2 -->
+                <!-- Show Units-->
+                <div
+                  class="modal fade bd-example-modal-sm"
+                  tabindex="-1"
+                  role="dialog"
+                  id="showUnits"
+                  aria-labelledby="showUnits"
+                  aria-hidden="true"
+                >
+                  <div class="modal-dialog modal-sm">
+                    <div class="modal-content">
+                      <h3 class="text-center default-text py-3">
+                        <i class="fa fa-product-hunt"></i> Show Units
+                      </h3>
+                      <table class="table table-dark">
+                        <thead>
+                          <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Product Unit</th>
+                            <th scope="col">Unit Code</th>
+                            <th scope="col">Opration</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr
+                            scope="row"
+                            *ngFor="let apu of allProductUnits; let i = index"
+                            [attr.data-index]="i"
+                          >
+                            <td>{{ i + 1 }}</td>
+                            <td>{{ apu.unit_name }}</td>
+                            <td>{{ apu.unit_code }}</td>
+                            <td><a href="">Delete</a></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+                <!-- end Show Units-->
+
+                <!-- Grid column 3 -->
+                <div class="col-md-6 mb-4">
+                  <div class="card">
+                    <div class="card-body">
+                      <h3 class="text-center default-text py-3">
+                        <i class="fa fa-product-hunt"></i> Add New Product
+                      </h3>
+                      <!--Body-->
+                      <!-- Large modal -->
+                      <button
+                        type="button"
+                        class="btn btn-primary show-btn"
+                        data-toggle="modal"
+                        data-target=".bd-example-modal-lg"
+                      >
+                        Show me Products
+                      </button>
+                      <div class="add-product-form">
+                        <form
+                          name="form"
+                          (ngSubmit)="f2.form.valid && onSubmitAddProduct()"
+                          #f2="ngForm"
+                          novalidate
+                        >
+                          <div class="select-box">
+                            <select
+                              [(ngModel)]="form.productCatId"
+                              name="productCatId"
+                              #productCatId="ngModel"
+                              required
+                            >
+                              <option
+                                value=""
+                                selected="selected"
+                                disabled="disabled"
+                              >
+                                Select an Product Category
+                              </option>
+                              <option
+                                *ngFor="let productCat of allProdCat"
+                                [ngValue]="productCat.id"
+                              >
+                                {{ productCat.prod_category }}
+                              </option>
+                            </select>
+
+                            <!-- <div class="images" data-selected=""></div> -->
+                          </div>
+                          <label for="product-qty">Product Title</label>
+                          <div class="md-form">
+                            <input
+                              id="product-title"
+                              class="form-control"
+                              type="text"
+                              [(ngModel)]="form.title"
+                              name="title"
+                              #title="ngModel"
+                            />
+                          </div>
+                          <label for="product-qty">Product Image</label>
+                          <div class="md-form">
+                            <input
+                              id="product-img"
+                              class="form-control"
+                              type="file"
+                              (change)="onChange($event)"
+                            />
+                          </div>
+                          <label for="product-qty">Product Discription</label>
+                          <div class="md-form">
+                            <input
+                              type="text"
+                              id="product-discription"
+                              class="form-control"
+                              [(ngModel)]="form.discription"
+                              name="discription"
+                              #discription="ngModel"
+                              required
+                            />
+                          </div>
+                          <div class="text-center">
+                            <input
+                              class="btn btn-default waves-effect waves-light"
+                              type="submit"
+                              name=""
+                              value="Add"
+                            />
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Grid column 3 -->
+                <div
+                  class="modal fade bd-example-modal-lg"
+                  tabindex="-1"
+                  role="dialog"
+                  aria-labelledby="myLargeModalLabel"
+                  aria-hidden="true"
+                >
+                  <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                      <h3 class="text-center default-text py-3">
+                        <i class="fa fa-product-hunt"></i> Show Products
+                      </h3>
+                      <table class="table table-dark">
+                        <thead>
+                          <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Image</th>
+                            <th scope="col">Title</th>
+                            <th scope="col">Category</th>
+                            <th scope="col">Discription</th>
+                            <th scope="col">Date</th>
+                            <th scope="col">Opration</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr
+                            scope="row"
+                            *ngFor="let ap of allProducts; let i = index"
+                            [attr.data-index]="i"
+                          >
+                            <td>{{ i + 1 }}</td>
+                            <td>
+                              <img
+                                src="{{ ap.prodImg }}"
+                                alt="{{ ap.title }}"
+                                title="{{ ap.title }}"
+                                width="100px"
+                              />
+                            </td>
+                            <td>{{ ap.title }}</td>
+                            <td>
+                              {{
+                                allProdCat[ap.prod_cate_id - 1].prod_category
+                              }}
+                            </td>
+                            <td>{{ ap.discription }}</td>
+                            <td>{{ ap.date }}</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Grid column 4 -->
+                <div class="col-md-6 mb-4">
+                  <div class="card">
+                    <div class="card-body"></div>
+                  </div>
+                </div>
+              </div>
+            </main>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Shops Section -->
+    <div id="menu2" class="container tab-pane fade">
+      <div class="main">
+        <h3>Shops</h3>
+        <div class="hipsum">
+          <div class="jumbotron hm-gradient">
+            <main>
+              <app-shop></app-shop>
+            </main>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Messages Section -->
+    <div id="menu3" class="container tab-pane fade">
+      <div class="main">
+        <h3>Messages</h3>
+        <div class="hipsum">
+          <div class="jumbotron">
+            <h1 id="hello,-world!">
+              Hello, Ram Mohan Ji!<a class="anchorjs-link" href="#hello,-world!"
+                ><span class="anchorjs-icon"></span
+              ></a>
+            </h1>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Setting Section -->
+    <div id="menu4" class="container tab-pane fade">
+      <div class="main">
+        <h3>Setting</h3>
+        <div class="hipsum">
+          <div class="jumbotron">
+            <h1 id="hello,-world!">
+              Hello, Ram Mohan Ji!<a class="anchorjs-link" href="#hello,-world!"
+                ><span class="anchorjs-icon"></span
+              ></a>
+            </h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

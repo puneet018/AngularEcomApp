@@ -1,0 +1,198 @@
+<div class="all-section-continer">
+<!-- SECTION-->
+<div class="section">
+  <!-- container-->
+  <div class="container">
+    <!-- Shop Keeper Display -->
+    <div
+      class="keeper js-flickity"
+      data-flickity-options='{ "wrapAround": true, "pageDots": false }'
+    >
+      <div class="keeper-cell" *ngFor="let sk of shops">
+        <img
+          [src]="sk.image"
+          class="img-circle img-responsive"
+          alt="Cinque Terre"
+        />
+        <span
+          >{{ sk.shopName }}
+          <p>{{ sk.sellerSale }}</p>
+        </span>
+        <!--<i class="fas fa-apple-alt"></i>-->
+      </div>
+    </div>
+  </div>
+  <!-- /container-->
+</div>
+<!-- /SECTION -->
+
+<!-- SECTION -->
+<section class="section">
+  <!-- container -->
+  <div class="container">
+    <!-- row-->
+    <div class="row">
+      <!-- section title-->
+      <div class="col-md-12">
+        <div class="section-title veg-title">
+          <h3 class="title">Vegetables</h3>
+        </div>
+      </div>
+      <!--  /section title -->
+
+      <main class="cards-item card-main col-md-12">
+        <div class="card-items">
+          <span *ngFor="let p of products; index as i">
+            <div class="card-item item-{{ i }}" *ngIf="p.product_cat == 1">
+              <a
+                ><div class="item-store-name">
+                  <span>Ram Kishan Store</span>
+                </div></a
+              >
+              <img
+                [src]="p.image"
+                alt="{{ p.name }}"
+                width="200px"
+                class=""
+                (click)="selectProduct(p.id)"
+                style="cursor: pointer; max-height: 132px;"
+              />
+              <app-wishlist-icon></app-wishlist-icon>
+              <div class="card-item-header">
+                <div class="card-item-title">
+                  <span>{{ p.name | titlecase }}</span>
+                </div>
+              </div>
+              <div class="container card-item-body">
+                <!--<h6>{{p.description.substr(0, 40)}} ....</h6>-->
+                <div class="row">
+                  <span class="lead col-sm-6">.500 KG</span>
+                  <span class="lead col-sm-6">{{
+                    p.price | currency: "INR"
+                  }}</span>
+                </div>
+              </div>
+              <div
+                class="row d-flex justify-content-center border-primary my-3"
+              >
+                <div class="col-md-8">
+                  <button
+                    class="
+                      btn btn-outline-primary btn-sm btn-block
+                      waves-effect
+                    "
+                    [class.disabled]="p.quantity < 1"
+                    [class.btn-outline-danger]="p.quantity < 1"
+                    (click)="AddToCardProduct(p.id,1)"
+                    [disabled]="p.quantity < 1"
+                  >
+                    {{ p.quantity < 1 ? "NO STOCK" : "Add To Cart" }}
+                  </button>
+                </div>
+              </div>
+            </div>
+            <span *ngIf="i == 5">
+              <br />
+            </span>
+          </span>
+        </div>
+      </main>
+      <!--</div>
+          </div>-->
+    </div>
+    <!-- /row-->
+  </div>
+  <!-- /container -->
+</section>
+<!-- SECTION -->
+<section class="section">
+  <!-- container -->
+  <div class="container">
+    <div class="row">
+      <!-- section title-->
+      <div class="col-md-12">
+        <div class="section-title fruit-title">
+          <h3 class="title">Fruits</h3>
+        </div>
+      </div>
+      <!--  /section title -->
+
+      <!-- Products tab & slick
+        <div class="col-md-12">
+          <div class="row">-->
+
+      <!--<header class="card-item card-header">
+                <h2>Vegetables</h2>
+              </header>
+              <div class="card-item card-title">
+              </div>-->
+      <main class="cards-item card-main col-md-12">
+        <div class="card-items">
+          <span *ngFor="let p of products; index as i">
+            <div class="card-item item-{{ i }}" *ngIf="p.product_cat == 2">
+              <a
+                ><div class="item-store-name">
+                  <span>Ram Kishan Store</span>
+                </div></a
+              >
+              <img
+                [src]="p.image"
+                alt="{{ p.name }}"
+                width="200px"
+                class=""
+                (click)="selectProduct(p.id)"
+                style="cursor: pointer"
+              />
+              <app-wishlist-icon></app-wishlist-icon>
+              <div class="card-item-header">
+                <div class="card-item-title">
+                  <span>{{ p.name | titlecase }}</span>
+                </div>
+              </div>
+              <div class="container card-item-body">
+                <!--<h6>{{p.description.substr(0, 40)}} ....</h6>-->
+                <div class="row">
+                  <span class="lead col-sm-6">.500 KG</span>
+                  <span class="lead col-sm-6">{{
+                    p.price | currency: "INR"
+                  }}</span>
+                </div>
+              </div>
+
+              <div
+                class="row d-flex justify-content-center border-primary my-3"
+              >
+                <div class="col-md-8">
+                  <button
+                    class="
+                      btn btn-outline-primary btn-sm btn-block
+                      waves-effect
+                    "
+                    [class.disabled]="p.quantity < 1"
+                    [class.btn-outline-danger]="p.quantity < 1"
+                    (click)="AddProduct(p.id)"
+                    [disabled]="p.quantity < 1"
+                  >
+                    {{ p.quantity < 1 ? "NO STOCK" : "Add To Cart" }}
+                  </button>
+                </div>
+              </div>
+            </div>
+            <span *ngIf="i == 5">
+              <br />
+            </span>
+          </span>
+        </div>
+      </main>
+      <!--</div>
+          </div>-->
+    </div>
+    <!-- /row-->
+  </div>
+  <!-- /container -->
+</section>
+<!-- /SECTION -->
+</div>
+<!-- HOT DEAL SECTION -->
+
+<!-- /HOT DEAL SECTION -->

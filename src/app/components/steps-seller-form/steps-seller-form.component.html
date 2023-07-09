@@ -1,0 +1,102 @@
+<section class="wizard-section">
+    <div class="row no-gutters">
+        <div class="col-lg-6 col-md-6">
+            <div class="wizard-content-left d-flex justify-content-center align-items-center">
+                <h1>Create Your Online Shop</h1>
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-6">
+            <div class="form-wizard">
+                <!-- Form -->
+                <form name="form" (ngSubmit)="f.form.valid && saveShopInfoAfterLogin()" #f="ngForm" role="form">
+                    <div class="form-wizard-header">
+                        <p>STEP</p>
+                        <ul class="list-unstyled form-wizard-steps clearfix">
+                            <li class="active"><span>2</span></li>
+                        </ul>
+                    </div>
+                    <fieldset class="wizard-fieldset show">
+                        <h5>Shop Information</h5>
+                        <div class="form-group">
+                            <input [(ngModel)]="form.shopName" name="shopName" #shopName="ngModel" type="text" class="form-control wizard-required" value="{{ form.shopName }}" id="shopName" required />
+                            <label for="shopName" class="wizard-form-text-label">Shop Name*</label
+              >
+              <div class="wizard-form-error"></div>
+            </div>
+            <div class="form-group">
+              <div class="select-box">
+                <select id="basic" name="select">
+                  <option value="">&nbsp;</option>
+                  <option value="1" data-subtitle="The first option" data-left="/assets/imgs/vegs/tomato.jpg" data-right="1" selected>One</option>
+                  <option value="2" data-subtitle="The second option" data-left="/assets/imgs/vegs/tomato.jpg" data-right="2">Two</option>
+                  <option value="3" data-subtitle="The third option" data-left="/assets/imgs/vegs/tomato.jpg" data-right="3">Three</option>
+                  ...
+                </select>
+                <!-- select2.css is off in index.html -->
+                <!-- <select
+                  [(ngModel)]="form.shopCate"
+                  name="shopCate"
+                  #shopCate="ngModel"
+                  required
+                  id="select2_my_id"
+                  style="width: 100%"
+                >
+                  <option value="" data-img_src="/assets/imgs/vegs/tomato.jpg">
+                    Select Category
+                  </option>
+                  <option
+                    *ngFor="let asc of allShopCategories"
+                    [value]="asc.id"
+                    data-img_src="/assets/imgs/vegs/tomato.jpg"
+                  >
+                    {{ asc.shop_cate_title }}
+                  </option>
+                </select> -->
+              </div>
+              <div class="wizard-form-error"></div>
+            </div>
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control wizard-required"
+                id="pinCode"
+                [(ngModel)]="form.pinCode"
+                name="pinCode"
+                #picCode="ngModel"
+                required
+              />
+              <label for="pinCode" class="wizard-form-text-label"
+                >Pin Code*</label
+              >
+              <div class="wizard-form-error"></div>
+            </div>
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control wizard-required"
+                id="shopaddress"
+                [(ngModel)]="form.marketLocationName"
+                name="marketLocationName"
+                #marketLocationName="ngModel"
+              />
+              <label for="marketLocationName" class="wizard-form-text-label"
+                >Market Location Name*</label
+              >
+              <div class="wizard-form-error"></div>
+            </div>
+            <div class="form-group clearfix">
+              <!--<a href="javascript:;" class="form-wizard-previous-btn float-left">Previous</a>-->
+              <input
+                class="btn btn-primary"
+                type="submit"
+                name=""
+                value="Add"
+              />
+            </div>
+          </fieldset>
+        </form>
+        <!--end Form -->
+      </div>
+    </div>
+  </div>
+</section>

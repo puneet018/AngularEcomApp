@@ -1,0 +1,59 @@
+<section class="all-section-continer">
+  <div class="container" [class.active]="isActive">
+    <div class="user signinBx">
+      <div class="imgBx">
+        <img src="/assets/imgs/shop-img/shop2.jpg" alt="" />
+      </div>
+      <div class="formBx">
+        <form
+          *ngIf="!isLoggedIn"
+          name="form"
+          (ngSubmit)="f.form.valid && phoneNumberSignIn()"
+          #f="ngForm"
+          novalidate
+        >
+          <h2>STEP - 1</h2>
+          <div class="form-group">
+            <div
+              class="alert alert-danger"
+              role="alert"
+              *ngIf="f.submitted && isLoginFailed"
+            >
+              Registration failed: {{ errorMessage }}
+            </div>
+          </div>
+          <input
+            type="text"
+            [(ngModel)]="form.phoneNumber"
+            name="phoneNumber"
+            placeholder="Your Phone Number"
+            #phoneNumber="ngModel"
+            required
+          />
+          <div
+            class="alert alert-danger"
+            role="alert"
+            *ngIf="phoneNumber.errors && f.submitted"
+          >
+            Mobile Number is required!
+          </div>
+          <div id="recaptcha-container"></div>
+          <input type="submit" name="" value="Ohk Let's Go" />
+
+          <hr class="omb_hrOr" />
+          <span class="omb_spanOr">or</span>
+          <div class="login-box">
+            <a href="#" class="social-button" id="google-connect">
+              <span>Connect with Google</span></a
+            >
+            <a href="#" class="social-button" id="facebook-connect">
+              <span>Connect with Facebook</span></a
+            >
+            <!--<a href="#" class="social-button" id="twitter-connect"> <span>Connect with Twitter</span></a>
+			<a href="#" class="social-button" id="linkedin-connect"> <span>Connect with LinkedIn</span></a>-->
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
